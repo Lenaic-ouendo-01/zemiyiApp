@@ -3,15 +3,26 @@ import { ref } from "vue";
 
 </script>
 <template>
-    <div class="messagesInternes-page">
-        <div>
-            <h1>Boite de réception</h1>
+    <div class="actusInfos-page">
+        <div class="entete">
+            <img src="/public/image/back.svg" alt="">
+            <h1>Informations & Alertes</h1>
         </div>
 
         <!-- Onglets -->
         <div class="tabs">
-            <div class="tab active">Messages internes</div>
-            <div class="tab">Messages externes</div>
+            <router-link to="/messagesInterne">
+                <div class="tab active">
+                    <img src="/public/image/msg-interne.svg" alt="">
+                    <p>Actus et Infos</p>
+                </div>
+            </router-link>
+            <router-link to="/messagesExterne">
+                <div class="tab ">
+                    <img src="/public/image/msg-externe.svg" alt="">
+                    <p>Alertes Convoit</p>
+                </div>
+            </router-link>
         </div>
 
         <!-- Liste des messages -->
@@ -22,8 +33,12 @@ import { ref } from "vue";
                 <h3>Zémiyi</h3>
                 <p>Nora, bienvenue chez Zémiyi Bénin !</p>
             </div>
-            <span class="time">10:20</span>
-            <div class="unread-indicator"></div>
+            <div>
+
+                <span class="time">10:20</span>
+                <div class="unread-indicator"></div>
+            </div>
+
             </div>
             <div class="message">
             <div class="avatar"></div>
@@ -31,51 +46,83 @@ import { ref } from "vue";
                 <h3>Zémiyi</h3>
                 <p>Cadeaux de bienvenue !</p>
             </div>
+
             <span class="time">10:09</span>
             <div class="unread-indicator"></div>
+
             </div>
         </div>
-
+   
         <!-- Barre de navigation -->
         <div class="nav-bar">
+
+            <router-link to="/accueil">  
+                <div class="nav-item">
+                    <img src="/public/image/home.svg" alt="Accueil" />
+                    <p>Accueil</p>
+                </div>
+            </router-link>
+
+            <router-link to="/messagesInternes">  
             <div class="nav-item">
-            <i>🏠</i>
-            Accueil
+                <img src="/public/image/message.svg" alt="Messageries" />
+                <p>Messageries</p>
             </div>
-            <div class="nav-item active">
-            <i>💬</i>
-            Messageries
-            </div>
+            </router-link>
+        
+            <router-link to="/profil">  
             <div class="nav-item">
-            <i>👤</i>
-            Profil
+                <img src="/public/image/profil.svg" alt="Profil" />
+                <p>Profil</p>
             </div>
+            </router-link>
         </div>
 
         <!-- Bouton flottant -->
-        <div class="floating-button">🔄</div>
+
+        <div class="floating-button">
+            <router-link to="/">  
+                <img src="/public/image/echange.svg" alt="Ajouter" />
+            </router-link>
+        </div>
     </div>
 </template>
 <style scoped>
-    /* header {
-        text-align: center;
-        padding: 15px 0;
-        background-color: #fff;
-        border-bottom: 1px solid #ddd;
-    } */
 
-        h1 {
+    h1 {
         font-size: 18px;
         margin: 0;
-        color: #333;
+        color: #000000;
+        text-align: center;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 30px;
+        font-family: Poppins,sans-serif;
     }
+    h3{
+        font-family: Poppins;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 22.5px;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
 
-    /* Onglets */
-    .tabs {
+    }
+    .entete{
+        display:flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        gap: 10px;
+    }
+     /* Onglets */
+     .tabs {
         display: flex;
         justify-content: center;
         background-color: #fff;
         border-bottom: 2px solid #ddd;
+        gap: 10px;
     }
 
     .tab {
@@ -85,7 +132,12 @@ import { ref } from "vue";
         font-size: 14px;
         cursor: pointer;
         color: #888;
+        display: flex;
+        flex-direction: row;
+        align-items:center ;
+        gap: 12px;
     }
+
 
     .tab.active {
         color: #00a000;
@@ -109,11 +161,16 @@ import { ref } from "vue";
     }
 
     .avatar {
-        width: 50px;
-        height: 50px;
-        background-color: #ccc;
-        border-radius: 50%;
         margin-right: 15px;
+        width: 57px;
+        height: 53px;
+        top: 174px;
+        left: 18px;
+        gap: 0px;
+        border-radius: 9px ;
+        opacity: 0px;
+        background-color: #D9D9D9;
+
     }
 
     .content {
@@ -128,8 +185,15 @@ import { ref } from "vue";
 
     .content p {
         margin: 5px 0 0;
-        font-size: 14px;
         color: #666;
+        font-family: Poppins;
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 19.5px;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+
     }
 
     .time {
@@ -156,6 +220,13 @@ import { ref } from "vue";
         background-color: #fff;
         padding: 10px 0;
         border-top: 1px solid #ddd;
+    }
+
+    .nav-item{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
     .nav-bar .nav-item {

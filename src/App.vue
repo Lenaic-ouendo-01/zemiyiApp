@@ -7,6 +7,7 @@ import MessagesInterne from './views/MessagesInterne.vue';
 import MessagesExterne from './views/MessagesExterne.vue';
 import ActusInfos from './views/ActusInfos.vue';
 import AlertesConvoit from './views/AlertesConvoit.vue';
+import RechercherTrajet from './views/RechercherTrajet.vue';
 </script>
 
 <template>

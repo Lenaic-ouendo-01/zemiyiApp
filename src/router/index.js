@@ -5,6 +5,7 @@ import MessagesInterne from '@/views/MessagesInterne.vue';
 import MessagesExterne from '@/views/MessagesExterne.vue';
 import ActusInfos from '@/views/ActusInfos.vue';
 import AlertesConvoit from '@/views/AlertesConvoit.vue';
+import RechercherTrajet from '@/views/RechercherTrajet.vue';
 
 const routes =[
     {
@@ -36,6 +37,11 @@ const routes =[
         path:'/alertesConvoit',
         name: 'AlertesConvoit',
         component: AlertesConvoit,
+    },
+    {
+        path:'/rechercherTrajet',
+        name: 'RechercherTrajet',
+        component: RechercherTrajet,
     },
 
 ];

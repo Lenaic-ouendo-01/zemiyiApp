@@ -3,34 +3,36 @@ import { ref } from "vue";
 
 </script>
 <template>
-    <div class="messagesExternes-page">
+    <div class="actusInfos-page">
         <div class="entete">
-            <h1>Boite de réception</h1>
+            <img src="/public/image/back.svg" alt="">
+            <h1>Rechercher un Trajet </h1>
+            <img src="/public/image/question-mark.svg" alt="">
         </div>
+            <div>
+                <div class="mois">
+                    <img src="/public/image/back.svg" alt="">
+                    <p>decembre 2024</p>
+                    <img src="/public/image/next.svg" alt="">
+                </div>
+                <div>
+                    <div class="jours">
+                        <p>lun.</p>
+                        <p>9</p>
+                    </div>
+                </div>
+                <div></div>
+            </div>
+        <div>
 
-        <!-- Onglets -->
-        <div class="tabs">
-            <router-link to="/messagesInterne">
-                <div class="tab ">
-                    <img src="/public/image/msg-interne.svg" alt="">
-                    <p>Messages internes</p>
-                </div>
-            </router-link>
-            <router-link to="/messagesExterne">
-                <div class="tab active">
-                    <img src="/public/image/msg-externe.svg" alt="">
-                    <p>Messages externes</p>
-                </div>
-            </router-link>
         </div>
-
         <!-- Liste des messages -->
         <div class="message-list">
             <div class="message">
             <div class="avatar"></div>
             <div class="content">
-                <h3>Transporteur godomey</h3>
-                <p>Je suis entrain de démarré de ...</p>
+                <h3>Zémiyi</h3>
+                <p>Nora, bienvenue chez Zémiyi Bénin !</p>
             </div>
             <div>
 
@@ -42,8 +44,8 @@ import { ref } from "vue";
             <div class="message">
             <div class="avatar"></div>
             <div class="content">
-                <h3>Transporteur habituel</h3>
-                <p>J’espère que vous avez apprécier ...</p>
+                <h3>Zémiyi</h3>
+                <p>Cadeaux de bienvenue !</p>
             </div>
 
             <span class="time">10:09</span>
@@ -62,7 +64,7 @@ import { ref } from "vue";
                 </div>
             </router-link>
 
-            <router-link to="/messagesInterne">  
+            <router-link to="/messagesInternes">  
             <div class="nav-item">
                 <img src="/public/image/message.svg" alt="Messageries" />
                 <p>Messageries</p>
@@ -108,8 +110,15 @@ import { ref } from "vue";
         text-decoration-skip-ink: none;
 
     }
-    /* Onglets */
-    .tabs {
+    .entete{
+        display:flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        gap: 10px;
+    }
+     /* Onglets */
+     .tabs {
         display: flex;
         justify-content: center;
         background-color: #fff;
@@ -129,6 +138,7 @@ import { ref } from "vue";
         align-items:center ;
         gap: 12px;
     }
+
 
     .tab.active {
         color: #00a000;
@@ -199,6 +209,10 @@ import { ref } from "vue";
         background-color: #ff0000;
         border-radius: 50%;
     }
+    .mois{
+
+    }
+    .jours{}
 
     /* Barre de navigation */
     .nav-bar {
