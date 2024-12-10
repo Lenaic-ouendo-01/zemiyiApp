@@ -73,9 +73,9 @@ export default {
 
     <div class="demande_transfert">
       <p class="text_button_transfert">Transfert effectuer 0 francs CFA.</p>
-      <div class="button_transfert">
+      <div class="">
         <button>
-          <div>
+          <div class="button_transfert">
             <img src="/public/image/+.svg" alt="+" />
             <p> Transfert</p>
           </div>
@@ -85,21 +85,36 @@ export default {
 
     <p class="text_services">Nos services et produits</p>
     <div class="services_grid">
-      <div class="service_card">
-        <img src="/public/image/moto.svg" alt="Moto" />
-      </div>
-      <div class="service_card">
-        <img src="/public/image/voiture.svg" alt="Voiture" />
-      </div>
-      <div class="service_card">
-        <img src="/public/image/covoiturage.svg" alt="Covoiturage" />
-      </div>
-      <div class="service_card">
-        <img src="/public/image/bus.svg" alt="Bus" />
-      </div>
-      <div class="service_card">
-        <img src="/public/image/tricycle.svg" alt="Tricycle" />
-      </div>
+      <router-link to="/">
+        <div class="service_card">
+          <img src="/public/image/moto.svg" alt="Moto" />
+        </div>
+      </router-link>
+
+      <router-link to="/">
+        <div class="service_card">
+          <img src="/public/image/voiture.svg" alt="Voiture" />
+        </div>
+      </router-link>
+
+      <router-link to="/">  
+        <div class="service_card">
+          <img src="/public/image/covoiturage.svg" alt="Covoiturage" />
+        </div>
+      </router-link>
+
+      <router-link to="/">  
+        <div class="service_card">
+          <img src="/public/image/bus.svg" alt="Bus" />
+        </div>
+      </router-link>
+
+      <router-link to="/">  
+        <div class="service_card">
+          <img src="/public/image/tricycle.svg" alt="Tricycle" />
+        </div>
+      </router-link>
+
     </div>
 
     <div class="echange_icon">
@@ -107,23 +122,39 @@ export default {
     </div>
   </main>
 
-  <nav class="navbar">
+    <!-- Barre de navigation -->
+    <div class="nav-bar">
+
+<router-link to="/accueil">  
     <div class="nav-item">
-      <img src="/public/image/home.svg" alt="Accueil" />
-      <p>Accueil</p>
+        <img src="/public/image/home.svg" alt="Accueil" />
+        <p>Accueil</p>
     </div>
-    <div class="nav-item">
-      <img src="/public/image/message.svg" alt="Messageries" />
-      <p>Messageries</p>
-    </div>
-    <div class="nav-item-floating">
-      <img src="/public/image/echange.svg" alt="Ajouter" />
-    </div>
-    <div class="nav-item">
-      <img src="/public/image/profil.svg" alt="Profil" />
-      <p>Profil</p>
-    </div>
-  </nav>
+</router-link>
+
+<router-link to="/messagesInterne">  
+<div class="nav-item">
+    <img src="/public/image/message.svg" alt="Messageries" />
+    <p>Messageries</p>
+</div>
+</router-link>
+
+<router-link to="/profil">  
+<div class="nav-item">
+    <img src="/public/image/profil.svg" alt="Profil" />
+    <p>Profil</p>
+</div>
+</router-link>
+</div>
+
+<!-- Bouton flottant -->
+
+<div class="floating-button">
+<router-link to="/">  
+    <img src="/public/image/echange.svg" alt="Ajouter" />
+</router-link>
+</div>
+
 </template>
 
 <style scoped>
@@ -135,6 +166,7 @@ body {
 main{
   margin: 20px;
   background-color: #FFFFFF;
+  
 }
 
 /* Header */
@@ -209,9 +241,12 @@ main{
 }
 
 .button_transfert {
-  margin-top: 10px;
   display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
+  padding: 6px;
+  gap: 10px;
   
 }
 
@@ -219,8 +254,7 @@ main{
   display: flex;
   align-items: center;
   font-weight: 500;
-  width: 15
-  px;
+  width: 140px;
 }
 
 /* Services */
@@ -235,7 +269,9 @@ main{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-  margin-top: 10px;
+  margin: 10px;
+  margin-bottom: 10px;
+
 }
 
 .service_card img {
@@ -249,52 +285,68 @@ main{
   
 }
 
-/* Navbar */
-.navbar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: white;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: space-around;
-  padding: 10px 0;
-}
+/* Barre de navigation */
+.nav-bar {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #fff;
+        padding: 10px 0;
+        border-top: 1px solid #ddd;
+    }
 
-.nav-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 12px;
-}
+    .nav-item{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 
-.nav-item img {
-  width: 24px;
-  margin-bottom: 5px;
-}
+    .nav-bar .nav-item {
+        text-align: center;
+        color: #888;
+        font-size: 12px;
+    }
 
-/* Icône flottante */
-.nav-item-floating {
-  position: relative;
-  top: -20px;
-  background-color: #1e246a;
-  padding: 15px;
-  border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  width: 60px;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    .nav-bar .nav-item.active {
+        color: #00a000;
+    }
 
-.nav-item-floating img {
-  width: 30px;
-  height: 30px;
-}
+    .nav-bar .nav-item i {
+        display: block;
+        font-size: 20px;
+    }
 
-@media (max-width: 726px){
+    /* Bouton flottant */
+    .floating-button {
+        position: fixed;
+        bottom: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 60px;
+        background-color: #00a000;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        color: #fff;
+        font-size: 24px;
+        cursor: pointer;
+
+    }
+    .floating-button img{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+ @media (max-width: 726px){
 
 .toggle{
   position: relative;

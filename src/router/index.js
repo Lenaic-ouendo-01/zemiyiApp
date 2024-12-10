@@ -1,6 +1,10 @@
 import {createRouter, createWebHistory} from 'vue-router';
 import Accueil from '@/views/Accueil.vue';
 import Profil from '@/views/Profil.vue';
+import MessagesInterne from '@/views/MessagesInterne.vue';
+import MessagesExterne from '@/views/MessagesExterne.vue';
+import ActusInfos from '@/views/ActusInfos.vue';
+import AlertesConvoit from '@/views/AlertesConvoit.vue';
 
 const routes =[
     {
@@ -12,6 +16,26 @@ const routes =[
         path:'/profil',
         name: 'Profil',
         component: Profil,
+    },
+    {
+        path:'/messagesInterne',
+        name: 'MessagesInterne',
+        component: MessagesInterne,
+    },
+    {
+        path:'/messagesExterne',
+        name: 'MessagesExterne',
+        component: MessagesExterne,
+    },
+    {
+        path:'/actusInfos',
+        name: 'ActusInfos',
+        component: ActusInfos,
+    },
+    {
+        path:'/alertesConvoit',
+        name: 'AlertesConvoit',
+        component: AlertesConvoit,
     },
 
 ];
