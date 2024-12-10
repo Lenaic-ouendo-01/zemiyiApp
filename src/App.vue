@@ -8,6 +8,7 @@ import MessagesExterne from './views/MessagesExterne.vue';
 import ActusInfos from './views/ActusInfos.vue';
 import AlertesConvoit from './views/AlertesConvoit.vue';
 import RechercherTrajet from './views/RechercherTrajet.vue';
+import ResultSearch from './views/ResultSearch.vue';
 </script>
 
 <template>

@@ -5,59 +5,115 @@ import { ref } from "vue";
 <template>
     <div class="actusInfos-page">
         <div class="entete">
-            <img src="/public/image/back.svg" alt="">
+            <router-link to="/">
+                <img src="/public/image/back.svg" alt="">
+            </router-link>
             <h1>Rechercher un Trajet </h1>
-            <img src="/public/image/question-mark.svg" alt="">
+            <router-link to="/">
+                <img src="/public/image/question-mark.svg" alt="">
+            </router-link>
         </div>
             <div>
                 <div class="mois">
-                    <img src="/public/image/back.svg" alt="">
+                    <router-link>
+                        <img src="/public/image/back.svg" alt="" >
+                    </router-link>
                     <p>decembre 2024</p>
-                    <img src="/public/image/next.svg" alt="">
+                    <router-link>
+                        <img src="/public/image/next.svg" alt="">
+                    </router-link>
                 </div>
-                <div>
+                <div class="semaines">
                     <div class="jours">
                         <p>lun.</p>
                         <p>9</p>
                     </div>
+                    <div class="jours">
+                        <p>mar.</p>
+                        <p>10</p>
+                    </div>
+                    <div class="jours">
+                        <p>mer.</p>
+                        <p>12</p>
+                    </div>
+                    <div class="jours">
+                        <p>jeu.</p>
+                        <p>13</p>
+                    </div>
+                    <div class="jours">
+                        <p>ven.</p>
+                        <p>14</p>
+                    </div>
+                    <div class="jours">
+                        <p>sam.</p>
+                        <p>15</p>
+                    </div>
+                    <div class="jours">
+                        <p>dim.</p>
+                        <p>16</p>
+                    </div>
                 </div>
-                <div></div>
+                <div class="depart-destination">
+                    <div>
+                        <p>Départ</p>
+                        <div class="barre-recherche">
+                            <img src="/public/image/rechercher.svg" alt="">
+                            <input name="" id="" placeholder="Ecrire et sélectionner la ville">
+                        </div>
+                    </div>
+                    <router-link>
+                        <img src="/public/image/Interraction.svg" alt="" class="interraction">
+                    </router-link>
+                    <div>
+                        <p>Destination</p>
+                        <div class="barre-recherche">
+                            <img src="/public/image/rechercher.svg" alt="">
+                            <input name="" id="" placeholder="Ecrire et sélectionner la ville">
+                        </div>
+                    </div>
+                    <div class="sieges-a-rechercher">
+                        <p>Nombre de sièges rechercher</p>
+                        <div class="ajout-siege">
+                            <router-link>
+                                <div class="circle">
+                                    <img src="/public/image/plus.svg" alt="">
+                                </div>
+                            </router-link>
+                            <p>1 siège</p>
+                            <router-link>
+                                <div class="circle">
+                                    <img src="/public/image/moins.svg" alt="">
+                                </div>
+                            </router-link>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <router-link to="/resultSearch">
+                        <p class="button-rechercher">Rechercher</p>
+                    </router-link>
+                </div>
+                <iframe src="/public/image/boussole.svg" frameborder="0"></iframe>
+                <iframe 
+                    width="100%" 
+                    height="100%" 
+                    src="https://maps.google.com/maps?q=${2.4245867},${6.3708131}&amp;z=15&amp;output=embed" 
+                    frameborder="0" 
+                    allowfullscreen>
+                
+                </iframe>;
+
+
+              
             </div>
         <div>
 
         </div>
-        <!-- Liste des messages -->
-        <div class="message-list">
-            <div class="message">
-            <div class="avatar"></div>
-            <div class="content">
-                <h3>Zémiyi</h3>
-                <p>Nora, bienvenue chez Zémiyi Bénin !</p>
-            </div>
-            <div>
-
-                <span class="time">10:20</span>
-                <div class="unread-indicator"></div>
-            </div>
-
-            </div>
-            <div class="message">
-            <div class="avatar"></div>
-            <div class="content">
-                <h3>Zémiyi</h3>
-                <p>Cadeaux de bienvenue !</p>
-            </div>
-
-            <span class="time">10:09</span>
-            <div class="unread-indicator"></div>
-
-            </div>
-        </div>
-   
+        
         <!-- Barre de navigation -->
         <div class="nav-bar">
 
-            <router-link to="/accueil">  
+            <router-link to="/">  
                 <div class="nav-item">
                     <img src="/public/image/home.svg" alt="Accueil" />
                     <p>Accueil</p>
@@ -79,16 +135,15 @@ import { ref } from "vue";
             </router-link>
         </div>
 
-        <!-- Bouton flottant -->
-
-        <div class="floating-button">
-            <router-link to="/">  
-                <img src="/public/image/echange.svg" alt="Ajouter" />
-            </router-link>
-        </div>
+        
     </div>
 </template>
 <style scoped>
+    .actusInfos-page{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
 
     h1 {
         font-size: 18px;
@@ -210,9 +265,123 @@ import { ref } from "vue";
         border-radius: 50%;
     }
     .mois{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
 
     }
-    .jours{}
+    .mois img{
+        width: 12px;
+        height: 12px;
+    }
+    .jours{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+    .semaines{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+    }
+    .barre-recherche{
+        width: 350px;
+        height: 39px;
+        top: 270px;
+        left: 14px;
+        gap: 0px;
+        border-radius: 5px;
+        opacity: 0px;
+        border: 1px solid #808080;
+        display:flex;
+        align-items: center;
+        gap:20px;
+        padding: 15px;
+    }
+    .barre-recherche input{
+        border: hidden;
+        color: #FF1010;
+        font-family: Poppins;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 18px;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+
+    }
+    .depart-destination{
+        display: flex;
+        flex-direction: column;
+        gap:10px;
+    }
+    .depart-destination p{
+        font-family: Poppins;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 18px;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        padding: 10px;
+    }
+    .interraction {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: end;
+        width: 20px;
+        height: 17px;
+        top: 319px;
+        left: 405.45px;
+        gap: 0px;
+        opacity: 0px;
+        rotate:-90 deg; 
+
+    }
+    .circle{
+        width: 34px;
+        height: 34px;
+        top: 431px;
+        left: 22px;
+        gap: 0px;
+        opacity: 0px;
+        border-radius: 50px;
+        border: 1px solid #129C20;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .ajout-siege{
+        display: flex;
+        align-items: center; 
+    }
+    .sieges-a-rechercher{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .button-rechercher {
+        background-color: #129C20;
+        width: 386px;
+        height: 52px;
+        padding: 12px;
+        gap: 10px;
+        border-radius: 10px;
+        opacity: 0px;
+        text-align: center;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        color: #FFFFFF;
+        font-family: Poppins;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 27px;
+    }
+    
 
     /* Barre de navigation */
     .nav-bar {
@@ -249,22 +418,5 @@ import { ref } from "vue";
         font-size: 20px;
     }
 
-    /* Bouton flottant */
-    .floating-button {
-        position: fixed;
-        bottom: 60px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 60px;
-        height: 60px;
-        background-color: #00a000;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        color: #fff;
-        font-size: 24px;
-        cursor: pointer;
-    }
+
 </style>

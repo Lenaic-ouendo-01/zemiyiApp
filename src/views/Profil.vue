@@ -103,6 +103,38 @@ function uploadPicture(event) {
 <div v-else class="tab-content">
 <p>Préférences utilisateur à configurer...</p>
 </div>
+ <!-- Barre de navigation -->
+ <div class="nav-bar">
+
+<router-link to="/">  
+    <div class="nav-item">
+        <img src="/public/image/home.svg" alt="Accueil" />
+        <p>Accueil</p>
+    </div>
+</router-link>
+
+<router-link to="/messagesInternes">  
+<div class="nav-item">
+    <img src="/public/image/message.svg" alt="Messageries" />
+    <p>Messageries</p>
+</div>
+</router-link>
+
+<router-link to="/profil">  
+<div class="nav-item">
+    <img src="/public/image/profil.svg" alt="Profil" />
+    <p>Profil</p>
+</div>
+</router-link>
+</div>
+
+<!-- Bouton flottant -->
+
+<div class="floating-button">
+<router-link to="/">  
+    <img src="/public/image/echange.svg" alt="Ajouter" />
+</router-link>
+</div>
 </div>
 </template>
 
@@ -295,4 +327,57 @@ cursor: pointer;
 .edit-button:hover {
 background: #27ae60;
 }
+ /* Barre de navigation */
+ .nav-bar {
+        display: flex;
+        justify-content: space-around;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #fff;
+        padding: 10px 0;
+        border-top: 1px solid #ddd;
+    }
+
+    .nav-item{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-bar .nav-item {
+        text-align: center;
+        color: #888;
+        font-size: 12px;
+    }
+
+    .nav-bar .nav-item.active {
+        color: #00a000;
+    }
+
+    .nav-bar .nav-item i {
+        display: block;
+        font-size: 20px;
+    }
+
+    /* Bouton flottant */
+    .floating-button {
+        position: fixed;
+        bottom: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 60px;
+        background-color: #00a000;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        color: #fff;
+        font-size: 24px;
+        cursor: pointer;
+    }
 </style>

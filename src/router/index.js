@@ -6,10 +6,11 @@ import MessagesExterne from '@/views/MessagesExterne.vue';
 import ActusInfos from '@/views/ActusInfos.vue';
 import AlertesConvoit from '@/views/AlertesConvoit.vue';
 import RechercherTrajet from '@/views/RechercherTrajet.vue';
+import ResultSearch from '@/views/ResultSearch.vue';
 
 const routes =[
     {
-        path:'/accueil',
+        path:'/',
         name: 'Accueil',
         component: Accueil,
     },
@@ -42,6 +43,11 @@ const routes =[
         path:'/rechercherTrajet',
         name: 'RechercherTrajet',
         component: RechercherTrajet,
+    },
+    {
+        path:'/resultSearch',
+        name: 'ResultSearch',
+        component: ResultSearch,
     },
 
 ];

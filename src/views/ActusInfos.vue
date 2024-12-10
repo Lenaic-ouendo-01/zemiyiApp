@@ -56,7 +56,7 @@ import { ref } from "vue";
         <!-- Barre de navigation -->
         <div class="nav-bar">
 
-            <router-link to="/accueil">  
+            <router-link to="">  
                 <div class="nav-item">
                     <img src="/public/image/home.svg" alt="Accueil" />
                     <p>Accueil</p>
