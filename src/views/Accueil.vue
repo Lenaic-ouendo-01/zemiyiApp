@@ -1,30 +1,52 @@
-<script setup>
+<script>
 import { ref } from "vue";
 
-// Liste des alertes à afficher
-const alerts = ref([
-  { message: "Indiquez toutes les infos pour confirmer votre identité." },
-  { message: "Définissez vos préférences ici SVP." },
-]);
+export default {
+  setup() {
+    const isMenuOpen = ref(false);
 
-// Supprimer une alerte
-const dismissAlert = (index) => {
-  alerts.value.splice(index, 1);
+    const alerts = ref([
+      { message: "Indiquez toutes les infos pour confirmer votre identité." },
+      { message: "Définissez vos préférences ici SVP." },
+    ]);
+
+    const toggleMenu = () => {
+      isMenuOpen.value = !isMenuOpen.value;
+    };
+
+    const dismissAlert = (index) => {
+      alerts.value.splice(index, 1);
+    };
+
+    return {
+      isMenuOpen,
+      alerts,
+      toggleMenu,
+      dismissAlert,
+    };
+  },
 };
 </script>
 
+
 <template>
-  <header class="header">
-    <div class="menu_burger">
-      <img src="/public/image/hamburger.svg" alt="Menu Burger" />
+  <header class="header animation-header body-screen">
+    <div>
+      <div class="toggle" :class="{ active: isMenuOpen }" @click="toggleMenu"></div>
+      <ul class="navigation" :class="{ active: isMenuOpen }">
+        <li class="nav">Home</li>
+        <li class="nav">Services</li>
+        <li class="nav">Our Works</li>
+        <li class="nav">Clients</li>
+        <li class="nav">Contact</li>
+      </ul>
     </div>
-    <div class="notification_bell">
-      <img src="/public/image/cloche.svg" alt="Cloche de Notification" />
+    <div>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"/><path fill="#00ce02" d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2m6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5z"/></svg>
     </div>
   </header>
 
   <main>
-    <!-- Popups -->
     <div>
       <transition-group name="popup-fade" tag="div">
         <div
@@ -45,12 +67,10 @@ const dismissAlert = (index) => {
       </transition-group>
     </div>
 
-    <!-- Image de couverture -->
     <div class="image_cover">
       <img src="/public/image/image_cover.svg" alt="Image Cover" />
     </div>
 
-    <!-- Transfert -->
     <div class="demande_transfert">
       <p class="text_button_transfert">Transfert effectuer 0 francs CFA.</p>
       <div class="button_transfert">
@@ -63,7 +83,6 @@ const dismissAlert = (index) => {
       </div>
     </div>
 
-    <!-- Services -->
     <p class="text_services">Nos services et produits</p>
     <div class="services_grid">
       <div class="service_card">
@@ -83,13 +102,11 @@ const dismissAlert = (index) => {
       </div>
     </div>
 
-    <!-- Icône d'échange -->
     <div class="echange_icon">
       <img src="/public/image/echange.svg" alt="Icône d'échange" />
     </div>
   </main>
 
-  <!-- Navbar fixe -->
   <nav class="navbar">
     <div class="nav-item">
       <img src="/public/image/home.svg" alt="Accueil" />
@@ -125,9 +142,7 @@ main{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 15px;
-  background-color: white;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 12px;
 }
 
 .menu_burger img,
@@ -277,5 +292,53 @@ main{
 .nav-item-floating img {
   width: 30px;
   height: 30px;
+}
+
+@media (max-width: 726px){
+
+.toggle{
+  position: relative;
+  right: 8px;
+  width: 38px;
+  height: 38px;
+  background: url('https://api.iconify.design/charm/menu-hamburger.svg');
+  background-size: 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: translateX(-100%);
+  transition: transform 1s;
+  z-index: 11;
+}
+
+.toggle.active{
+  position: fixed;
+  right: 20px;
+  background: url('https://api.iconify.design/line-md/menu-to-close-alt-transition.svg');
+  background-size: 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: translateX(0);
+  filter: invert(1);
+}
+
+ul.navigation{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #c2c1c3;
+  transform: translateY(-100%);
+  transition: transform 1.1s;
+  z-index: 10;
+}
+ul.navigation.active{
+  transform: translateY(0);
+  transition: transform 1s;
+}
 }
 </style>
