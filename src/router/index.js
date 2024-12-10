@@ -1,4 +1,4 @@
-import {createRouter, createWebHistory} from 'vue-router';
+import {createRouter, createWebHashHistory} from 'vue-router';
 import Accueil from '@/views/Accueil.vue';
 import Profil from '@/views/Profil.vue';
 import MessagesInterne from '@/views/MessagesInterne.vue';
@@ -52,7 +52,7 @@ const routes =[
 
 ];
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHasHistory(),
     routes,
 });
 

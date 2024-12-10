@@ -27,7 +27,7 @@ export default {
 </script>
 
 <template>
-    <div>
+    <div class="resultSearch-page">
         <div class="entete">
             <router-link to="/rechercherTrajet">
                 <img src="/public/image/back.svg" alt="">
@@ -40,15 +40,16 @@ export default {
         <div class="sieges-a-rechercher">
             <p>Nombre de sièges rechercher</p>
             <div class="ajout-siege">
+               
                 <router-link>
                     <div class="circle">
-                        <img src="/public/image/plus.svg" alt="">
+                        <img src="/public/image/moins.svg" alt="">
                     </div>
                 </router-link>
                 <p>1 siège</p>
                 <router-link>
                     <div class="circle">
-                        <img src="/public/image/moins.svg" alt="">
+                        <img src="/public/image/plus.svg" alt="">
                     </div>
                 </router-link>
             </div>
@@ -70,19 +71,51 @@ export default {
         <p>Mar 10 Décembre, 1 passager</p>
     </div>
 
-    <div class=" type-de-deplacement " display: flex; flex-direction: row; height: 101px; width: 112px;>
-        <div v-for="cardIcon in cardIcons">
+    <div class=" type-de-deplacement " >
+        <div class="moyen-de-deplacement" v-for="cardIcon in cardIcons">
             <img :src="cardIcon.url" alt="">
             <center>{{cardIcon.nbr}}</center>
         </div>
     </div>
-
-    <div style="border: 2px; border-radius: 15px;">
-
+    
+    <div class="demande-trajet-covoiturage">
+        <div></div>
     </div>
+
+        <!-- Barre de navigation -->
+        <div class="nav-bar">
+
+    <router-link to="/">  
+        <div class="nav-item">
+            <img src="/public/image/home.svg" alt="Accueil" />
+            <p>Accueil</p>
+        </div>
+    </router-link>
+
+    <router-link to="/messagesInternes">  
+    <div class="nav-item">
+        <img src="/public/image/message.svg" alt="Messageries" />
+        <p>Messageries</p>
+    </div>
+    </router-link>
+
+    <router-link to="/profil">  
+    <div class="nav-item">
+        <img src="/public/image/profil.svg" alt="Profil" />
+        <p>Profil</p>
+    </div>
+    </router-link>
+    </div>
+
+    
 </template>
 
 <style scoped>
+.resultSearch-page{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 h1 {
     font-size: 18px;
     margin: 0;
@@ -139,7 +172,7 @@ h1 {
     display: flex;   
     flex-direction:column;
     justify-content: center; 
-    padding: 10px;
+    padding: 20px;
     width: 380px;
     height: 80px;
     top: 210px;
@@ -186,4 +219,63 @@ h1 {
     width: 10px;
     height: 10px;
 }
+.type-de-deplacement{
+display: flex;
+justify-content:center;
+align-items: center;
+gap: 10px;
+padding: 20px;
+
+}
+.moyen-de-deplacement{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    background-color: #D9D9D9;
+    width: 112px;
+    height: 101px;
+    top: 329px;
+    left: 14px;
+    gap: 0px;
+    border-radius: 10px ;
+    opacity: 0px;
+
+}
+
+/* Barre de navigation */
+.nav-bar {
+        display: flex;
+        justify-content: space-around;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #fff;
+        padding: 10px 0;
+        border-top: 1px solid #ddd;
+    }
+
+    .nav-item{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-bar .nav-item {
+        text-align: center;
+        color: #888;
+        font-size: 12px;
+    }
+
+    .nav-bar .nav-item.active {
+        color: #00a000;
+    }
+
+    .nav-bar .nav-item i {
+        display: block;
+        font-size: 20px;
+    }
+
 </style>
