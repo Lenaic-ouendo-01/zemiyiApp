@@ -57,7 +57,7 @@ export default {
     </div>
         
 
-    <div class="trajet">
+    <div class="trajet mt-4">
         <div class="trajet-itineraire">
             <router-link>
                 <img src="/public/image/back.svg" alt="" >
@@ -79,7 +79,56 @@ export default {
     </div>
     
     <div class="demande-trajet-covoiturage">
-        <div></div>
+
+        <div class="flex justify-between">
+            <div class="">
+                <p class="mb-[65px]">17:30</p>
+                <p>18:30</p>
+            </div>
+            <div class="flex items-center flex-col">
+                <img src="/public/image/cercle-red.svg" alt="">
+                <div class="h-[80px] border-l border-gray-500"></div>
+                <img src="/public/image/cercle-bleu.svg" alt="">
+            </div>
+            <div>
+                <div class="mb-[65px]">Cadjehoun-cadjehoun</div>
+                <div>Calavi Djadjo - entre Jean- Piaget II...</div>
+            </div>
+            <img src="/public/image/next.svg" alt="" class="mb-auto">
+        </div>
+        
+        <!-- <div>
+
+        <div class="card">
+            <div class="times">
+              <div>
+                    <p>17:30</p>
+                    <img src="/public/image/cercle-red.svg" alt="">
+                    <p>Cadjehoun - cadjèhoun</p>
+                    <img src="/public/image/next.svg" alt="">
+              </div>
+              <hr>
+              <div>
+                    <p>18:00</p>
+                    <img src="/public/image/cercle-bleu.svg" alt="">
+                    <p>Calavi Djadjo - entre jean Piaget ....</p>
+              </div>
+            </div>                
+            <div class="price">
+                <img src="/public/image/portefeuille.svg" alt="">
+                <p>💼 780 fcfa</p> 
+            </div>
+            <div class="driver">
+                <div class="avatar"></div>
+                <div class="driver-info">
+                    <span class="name">Beba G.</span>
+                    <span class="rating">★ 2</span>
+                </div>
+                <div class="icons">🏞️ 🚗</div>
+            </div>
+        </div>
+
+        </div> -->
     </div>
 
         <!-- Barre de navigation -->
@@ -277,5 +326,7 @@ padding: 20px;
         display: block;
         font-size: 20px;
     }
+    /* Demande de trajet itineraire  */
+   
 
 </style>
