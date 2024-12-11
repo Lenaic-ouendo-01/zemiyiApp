@@ -74,12 +74,12 @@ export default {
     </div>
 
     <div class="demande_transfert">
-      <p class="text_button_transfert">Transfert effectuer 0 francs CFA.</p>
+      <p class="text_button_transfert">Payement 0 francs CFA.</p>
       <div class="">
         <button>
           <div class="button_transfert">
             <img src="/public/image/+.svg" alt="+" />
-            <p> Transfert</p>
+            <p> Recharger</p>
           </div>
         </button>
       </div>
@@ -91,30 +91,35 @@ export default {
         <div class="service_card">
           <img src="/public/image/moto.svg" alt="Moto" />
         </div>
+        <p>Zem</p>
       </router-link>
 
       <router-link to="/">
         <div class="service_card">
           <img src="/public/image/voiture.svg" alt="Voiture" />
         </div>
+        <p>Voiture</p>
       </router-link>
 
       <router-link to="/rechercherTrajet">  
         <div class="service_card">
           <img src="/public/image/covoiturage.svg" alt="Covoiturage" />
         </div>
+        <p>Covoiturage</p>
       </router-link>
 
       <router-link to="/">  
         <div class="service_card">
           <img src="/public/image/bus.svg" alt="Bus" />
         </div>
+        <p>Bus</p>
       </router-link>
 
       <router-link to="/">  
         <div class="service_card">
           <img src="/public/image/tricycle.svg" alt="Tricycle" />
         </div>
+        Tricycle
       </router-link>
 
     </div>

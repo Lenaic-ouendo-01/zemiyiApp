@@ -1,5 +1,5 @@
 <script>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 
 export default {
   setup() {
@@ -18,7 +18,18 @@ export default {
             nbr:"3"
         }
     ]);
-   
+   let url = ref("https://81.91.228.149:32000")
+
+  /*  async function getTrajet() {
+        let get_url = ref("/service/zemiyi__backend/1.0.0/rides/all")
+        @ axios{
+
+        }
+   } */
+
+   onMounted(()=>{
+        getTrajet()
+    })
     return {
       cardIcons
     };
@@ -78,12 +89,12 @@ export default {
         </div>
     </div>
     
-    <div class="demande-trajet-covoiturage">
+    <div class="rounded-xl border-2 px-1 py-6">
 
         <div class="flex justify-between">
             <div class="">
-                <p class="mb-[65px]">17:30</p>
-                <p>18:30</p>
+                <p class="mb-[65px]">{{ }} 17:30</p>
+                <p>{{  }} 18:30</p>
             </div>
             <div class="flex items-center flex-col">
                 <img src="/public/image/cercle-red.svg" alt="">
@@ -91,44 +102,33 @@ export default {
                 <img src="/public/image/cercle-bleu.svg" alt="">
             </div>
             <div>
-                <div class="mb-[65px]">Cadjehoun-cadjehoun</div>
-                <div>Calavi Djadjo - entre Jean- Piaget II...</div>
+                <div class="mb-[65px]">{{  }} Cadjehoun-cadjehoun</div>
+                <div>{{  }} Calavi Djadjo - entre Jean- Piaget II...</div>
             </div>
-            <img src="/public/image/next.svg" alt="" class="mb-auto">
+            <img src="/public/image/next.svg" alt="" class="mb-auto mt-2">
         </div>
-        
-        <!-- <div>
-
-        <div class="card">
-            <div class="times">
-              <div>
-                    <p>17:30</p>
-                    <img src="/public/image/cercle-red.svg" alt="">
-                    <p>Cadjehoun - cadjèhoun</p>
-                    <img src="/public/image/next.svg" alt="">
-              </div>
-              <hr>
-              <div>
-                    <p>18:00</p>
-                    <img src="/public/image/cercle-bleu.svg" alt="">
-                    <p>Calavi Djadjo - entre jean Piaget ....</p>
-              </div>
-            </div>                
-            <div class="price">
-                <img src="/public/image/portefeuille.svg" alt="">
-                <p>💼 780 fcfa</p> 
-            </div>
-            <div class="driver">
-                <div class="avatar"></div>
-                <div class="driver-info">
-                    <span class="name">Beba G.</span>
-                    <span class="rating">★ 2</span>
+        <div class="flex mt-[24px] items-center">
+            <img src="/public/image/portefeuille.svg" alt="" class="mr-2">
+            <p>{{  }}  <span class="text-red-500"> < {{  }} (prix actuel du marche) </span> </p>
+        </div>
+        <div class="flex justify-between mt-8">
+            <div class="flex">
+                <div class="w-[44px] h-[44px] rounded-full overflow-hidden">
+                    <img :src="img" alt="" class="w-full h-full">{{  }}
                 </div>
-                <div class="icons">🏞️ 🚗</div>
+                <div class="ml-2">
+                    <div class="flex">{{  }}RAissa <img src="/public/image/valider.svg" alt=""></div>
+                    <div class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                        <rect width="24" height="24" fill="none" />
+                        <path fill="#c5cac5" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2m4.24 16L12 15.45L7.77 18l1.12-4.81l-3.73-3.23l4.92-.42L12 5l1.92 4.53l4.92.42l-3.73 3.23z" />
+                        </svg> {{  }}3
+                    </div>
+                </div>
+            </div>
+            <div class="flex mt-auto">
+                <img src="/public/image/route.svg" alt="" class="h-[15px] w-[20px]"><img src="/public/image/voiture.svg" alt="" class="h-[15px] w-[20px]">
             </div>
         </div>
-
-        </div> -->
     </div>
 
         <!-- Barre de navigation -->
